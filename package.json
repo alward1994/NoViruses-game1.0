@@ -1,0 +1,26 @@
+{
+  "name": "noviruses-game",
+  "version": "1.0.0",
+  "description": "* 14/06/2020\r * name of game :\r # save the city from viruses(NoViruses)\r ---\r ![](scr='https://editor.p5js.org/alward1994/sketches/rwXHtArnv\r ')\r ---\r ***\r ____\r >github\r ---\r ***\r * game\r ---\r ![](photo/g1.jpg)\r ![](photo/g2.jpg)\r ![](photo/g3.jpg)\r ![](photo/g4.jpg)\r ![](photo/gv.mp4)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alward1994/NoViruses-game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alward1994/NoViruses-game/issues"
+  },
+  "homepage": "https://github.com/alward1994/NoViruses-game#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "sequelize": "^5.21.13",
+    "sqlite3": "^4.2.0"
+  }
+}
