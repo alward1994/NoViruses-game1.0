@@ -151,7 +151,7 @@ function strscr(){
 
   fill(50, 100, 205);
   textFont(rangfont, width/22);
-  text("Press R to restart", width/2, height-40); 
+  text("Press R to restart", width/2, height-100); 
   
   if(stateChanged) {
     stateChanged = false;
