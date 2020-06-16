@@ -28,7 +28,7 @@ let s;
 let sv;
 let sd;
 let slw;
-let stateChanged = true; // NEW
+let stateChanged = false; // NEW
 
 function preload(){
   song= loadSound('assets/coffin.mp3');
@@ -149,11 +149,42 @@ function strscr(){
   fill(50, 100, 205);
   textFont(rangfont, width/22);
   text("Press R to restart", width/2, height/2 + w); 
-    // NEW 
-  if(stateChanged) {
+  // NEW
+  if (stateChanged) {
     stateChanged = false;
-    showForm();
+    let body = document.querySelector('body');
+    
+    let form = document.createElement('form');
+    form.style.position = "absolute";
+    form.style.top = "20%"; // отступ сверху
+    form.style.left = "50%"; 
+    form.style.transform = "translateX(-50%)";
+
+    let newBtn = document.createElement('button');
+    newBtn.textContent = "Save";
+    
+    let newInput = document.createElement('input');
+    newInput.setAttribute('type', 'text');
+    newInput.setAttribute('placeholder', 'Enter name to save score');
+    newInput.setAttribute('maxlength', 20);
+    newInput.required = true;
+    
+    body.appendChild(form);
+    form.appendChild(newInput);
+    form.appendChild(newBtn);
+    
+    form.addEventListener('submit', (e) => {
+      console.log("button pressed");
+      // here will be POST request to server
+      form.remove();
+      e.preventDefault();
+    });
   }
+  //   // NEW 
+  // if(stateChanged) {
+  //   stateChanged = false;
+  //   showForm();
+  // }
 
    if(keyIsPressed && key == 'r' ){
       reset();
