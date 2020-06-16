@@ -98,10 +98,10 @@ function allscr(){
     vg.overlap(dmg, collectdm);
     mn.overlap(vg, collect);
     showScores(); 
-    btn(button1, 400,40 , "30px", 'black', pixFont, changeBG );
+    btn(button1, 380,40 , "22px", 'black', pixFont, changeBG );
          boox();
          farm(0,0,windowWidth, windowHeight,8,'rgb(0,255,0)');
-    if ( ndm < nv || ndm-nv < 0 || ndm < w/2){
+    if ( ndm < nv || ndm-nv <= 0 || ndm < w/2){
       scr=2;
       stateChanged = true; // NEW
     
@@ -130,7 +130,7 @@ function strscr(){
   fill(50, 100, 205);
   textFont(rangfont,width/24);
   text("Win: when number of viruses less than number of heart ", width/2, height-height/3.5);
-  textFont(rangfont,width/25);
+  textFont(rangfont,width/28);
   text("Game over: when  number of viruses  more than  number of homes or when heart > 0", width/2, height-height/6);
   if(keyIsPressed && key == 's'){ 
      scr=1;} 
@@ -151,7 +151,7 @@ function strscr(){
 
   fill(50, 100, 205);
   textFont(rangfont, width/22);
-  text("Press R to restart", width/2, height/2+2*w); 
+  text("Press R to restart", width/2, height-40); 
   
   if(stateChanged) {
     stateChanged = false;
@@ -336,7 +336,7 @@ function newlevel1(){
     button3.remove();
     button3 = createButton(' click to start newlevel ');
     button1 = createButton('Music');
-    btn(button1, 400,40 , "30px", 'black', pixFont, changeBG );
+    btn(button1, 380,40 , "22px", 'black', pixFont, changeBG );
     song.play();
   
         scen();
