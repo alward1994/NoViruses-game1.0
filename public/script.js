@@ -39,7 +39,7 @@ function showForm() {
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },        
-            body: JSON.stringify({name: newInput.value, score: slw})
+            body: JSON.stringify({name: newInput.value, score: ndm})
         })
         .then(resp => resp.json())
         .then(data => {
