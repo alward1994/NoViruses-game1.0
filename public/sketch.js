@@ -28,7 +28,8 @@ let s;
 let sv;
 let sd;
 let slw;
-let stateChanged = false; // NEW
+let   stateChanged = false; // NEW
+
 
 function preload(){
   song= loadSound('assets/coffin.mp3');
@@ -47,8 +48,8 @@ function setup() {
   SCENE_H = (w+w/2)*w;
   textSize(40);
   textAlign(CENTER, CENTER);
-let fs = fullscreen();
-    fullscreen(!fs);
+// let fs = fullscreen();
+//     fullscreen(!fs);
   scen();
   button0 = createButton(' click to start play ');
   button1 = createButton('Music');
@@ -69,11 +70,13 @@ function scen(){
 function dw(){
   if(scr == 0){strscr();  }
   else if(scr == 1){
-    clear();
+  clear();
    button0.remove();
    allscr();
+
   }
   else if(scr==2){
+    camera.off();
     gameOver(); 
   }	
   else if(scr == 3){
@@ -95,12 +98,12 @@ function allscr(){
     vg.overlap(dmg, collectdm);
     mn.overlap(vg, collect);
     showScores(); 
-    btn(button1, 400,40 , "30px", 'red', pixFont, changeBG );
+    btn(button1, 400,40 , "30px", 'black', pixFont, changeBG );
          boox();
          farm(0,0,windowWidth, windowHeight,8,'rgb(0,255,0)');
-         stateChanged = true; // NEW
     if ( ndm < nv || ndm-nv < 0 || ndm < w/2){
-         gameOver(); 
+      scr=2;
+      stateChanged = true; // NEW
     
     }
   if(ndm-nv > nv){
@@ -132,7 +135,7 @@ function strscr(){
   if(keyIsPressed && key == 's'){ 
      scr=1;} 
   push();
-    btn(button0, 0 ,0 ,"20px" , 'red', rangfont,changeScr);
+    btn(button0, 0 ,0 ,"20px" , 'black', rangfont,changeScr);
   pop();  
 }
 
@@ -148,40 +151,10 @@ function strscr(){
 
   fill(50, 100, 205);
   textFont(rangfont, width/22);
-  text("Press R to restart", width/2, height/2 + w); 
-  // NEW
-  // if (stateChanged) {
-  //   stateChanged = false;
-  //   let body = document.querySelector('body');
-    
-  //   let form = document.createElement('form');
-  //   form.style.position = "absolute";
-  //   form.style.top = "20%"; // отступ сверху
-  //   form.style.left = "50%"; 
-  //   form.style.transform = "translateX(-50%)";
-
-  //   let newBtn = document.createElement('button');
-  //   newBtn.textContent = "Save";
-    
-  //   let newInput = document.createElement('input');
-  //   newInput.setAttribute('type', 'text');
-  //   newInput.setAttribute('placeholder', 'Enter name to save score');
-  //   newInput.setAttribute('maxlength', 20);
-  //   newInput.required = true;
-    
-  //   body.appendChild(form);
-  //   form.appendChild(newInput);
-  //   form.appendChild(newBtn);
-    
-  //   form.addEventListener('submit', (e) => {
-  //     console.log("button pressed");
-  //     // here will be POST request to server
-  //     form.remove();
-  //     e.preventDefault();
-  //   });
-  // }
-    // NEW 
+  text("Press R to restart", width/2, height/2+2*w); 
+  
   if(stateChanged) {
+    stateChanged = false;
     showForm();
   }
 
@@ -189,7 +162,7 @@ function strscr(){
       reset();
    }  
     push();
-    btn(button2, 0 ,0 ,"40px" , 'red', rangfont,reset);
+    btn(button2, 0 ,0 ,"40px" , 'black', rangfont,reset);
     pop(); 
     if (song.isPlaying()) { 
     song.pause(); 
@@ -211,7 +184,7 @@ function newlevel() {
   textFont(rangfont,width/20);
   text("Press x to continues", width/2, height/2 + w);
     push();
-    btn(button3, 0 ,0 ,"40px" , 'red', rangfont,newlevel1);
+    btn(button3, 0 ,0 ,"40px" , 'black', rangfont,newlevel1);
     pop(); 
    if(keyIsPressed && key == 'x' ){
      newlevel1();     
@@ -363,7 +336,7 @@ function newlevel1(){
     button3.remove();
     button3 = createButton(' click to start newlevel ');
     button1 = createButton('Music');
-    btn(button1, 400,40 , "30px", 'red', pixFont, changeBG );
+    btn(button1, 400,40 , "30px", 'black', pixFont, changeBG );
     song.play();
   
         scen();
